@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Production|Win32">
+      <Configuration>Production</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{05A0ACBD-8D66-4821-8B0D-5F95F61F7E1C}</ProjectGuid>
+    <RootNamespace>Dll1</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Production|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>.\src\security\vendor\Themida\include;.\src\gui\imgui\freetype\include;$(IncludePath)</IncludePath>
+    <LibraryPath>.\src\security\vendor\Themida\lib;.\src\security\vendor\WolfSSL\lib;.\src\gui\imgui\freetype\objs;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName) debug</TargetName>
+    <OutDir>.\Output\$(Configuration)\</OutDir>
+    <IntDir>.\Object\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>.\src\security\vendor\Themida\include;.\src\gui\imgui\freetype\include;$(IncludePath)</IncludePath>
+    <LibraryPath>.\src\security\vendor\Themida\lib;.\src\security\vendor\WolfSSL\lib;.\src\gui\imgui\freetype\objs;$(LibraryPath)</LibraryPath>
+    <OutDir>.\Output\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_beta</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <IntDir>.\Object\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|Win32'">
+    <IncludePath>.\src\security\vendor\Themida\include;.\src\gui\imgui\freetype\include;$(IncludePath)</IncludePath>
+    <LibraryPath>.\src\security\vendor\Themida\lib;.\src\security\vendor\WolfSSL\lib;.\src\gui\imgui\freetype\objs;$(LibraryPath)</LibraryPath>
+    <OutDir>.\Output\$(Configuration)\</OutDir>
+    <TargetName>beta</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <GenerateManifest>false</GenerateManifest>
+    <IntDir>.\Object\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;DLL1_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>.\src\security\vendor\WolfSSL;.\src\security\vendor\WolfSSL\wolfssl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>wolfssl.lib;ws2_32.lib;Crypt32.lib;freetype.lib;d3d9.lib;urlmon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_RELEASE;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;DLL1_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.\src\security\vendor\WolfSSL;.\src\security\vendor\WolfSSL\wolfssl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>msvcrt.lib;wolfssl.lib;ws2_32.lib;Crypt32.lib;freetype.lib;d3d9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Production|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_PRODUCTION;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;DLL1_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalIncludeDirectories>.\src\security\vendor\WolfSSL;.\src\security\vendor\WolfSSL\wolfssl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>msvcrt.lib;wolfssl.lib;ws2_32.lib;Crypt32.lib;freetype.lib;d3d9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalOptions>/NODEFAULTLIB:wolfssl %(AdditionalOptions)</AdditionalOptions>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <NoEntryPoint>false</NoEntryPoint>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="src\csgo\client\client.cpp" />
+    <ClCompile Include="src\csgo\hooks\cvar\cvar.cpp" />
+    <ClCompile Include="src\csgo\hooks\detour\detour_hook.cpp" />
+    <ClCompile Include="src\csgo\hooks\firebullets\firebullets.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\bsp.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\clientdll.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\clientmode.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\clientstate.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\engine.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\gamemovement.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\materialsystem.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\modelrender.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\netchannel.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\panel.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\prediction.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\shadowmgr.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\surface.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\traceray.cpp" />
+    <ClCompile Include="src\csgo\hooks\game\viewrender.cpp" />
+    <ClCompile Include="src\csgo\hooks\hooks.cpp" />
+    <ClCompile Include="src\csgo\hooks\player\player.cpp" />
+    <ClCompile Include="src\csgo\hooks\wndproc\wndproc.cpp" />
+    <ClCompile Include="src\csgo\interfaces\csgo.cpp" />
+    <ClCompile Include="src\csgo\sdk\animlayers.cpp" />
+    <ClCompile Include="src\csgo\sdk\animstate.cpp" />
+    <ClCompile Include="src\csgo\sdk\entity.cpp" />
+    <ClCompile Include="src\csgo\sdk\parallel.cpp" />
+    <ClCompile Include="src\csgo\sdk\resources.cpp" />
+    <ClCompile Include="src\csgo\sdk\studio.cpp" />
+    <ClCompile Include="src\csgo\sdk\threadtools.cpp" />
+    <ClCompile Include="src\csgo\sdk\trace.cpp" />
+    <ClCompile Include="src\features\Animations\EnemyAnimations.cpp" />
+    <ClCompile Include="src\features\Animations\LocalAnimations.cpp" />
+    <ClCompile Include="src\features\Animations\AlliesAnimations.cpp" />
+    <ClCompile Include="src\features\Animations\UpdateAnimations.cpp" />
+    <ClCompile Include="src\features\anti-aim\anti-aim.cpp" />
+    <ClCompile Include="src\features\bonesetup\BoneSetup.cpp" />
+    <ClCompile Include="src\features\chams\chams.cpp" />
+    <ClCompile Include="src\features\events\events.cpp" />
+    <ClCompile Include="src\features\Fake Ping\FakePing.cpp" />
+    <ClCompile Include="src\features\fakelag\FakeLag.cpp" />
+    <ClCompile Include="src\features\far esp\radar\radar.cpp" />
+    <ClCompile Include="src\features\far esp\sounds\SoundESP.cpp" />
+    <ClCompile Include="src\features\grenades\grenades.cpp" />
+    <ClCompile Include="src\features\grenades\grenades_warning.cpp" />
+    <ClCompile Include="src\features\lagcomp\lagcomp.cpp" />
+    <ClCompile Include="src\features\lagcomp\lagrecord.cpp" />
+    <ClCompile Include="src\features\movement\movement.cpp" />
+    <ClCompile Include="src\features\netdata\netdata.cpp" />
+    <ClCompile Include="src\features\Network\Network.cpp" />
+    <ClCompile Include="src\features\penetration\autowall.cpp" />
+    <ClCompile Include="src\features\prediction\EnginePrediction.cpp" />
+    <ClCompile Include="src\features\ragebot\ragebot.cpp" />
+    <ClCompile Include="src\features\resolver\resolver.cpp" />
+    <ClCompile Include="src\features\shots\shots.cpp" />
+    <ClCompile Include="src\features\skin changer\skin changer.cpp" />
+    <ClCompile Include="src\features\Tickbase Manipulation\TickbaseManipulation.cpp" />
+    <ClCompile Include="src\features\visuals\visuals.cpp" />
+    <ClCompile Include="src\features\weather\weather.cpp" />
+    <ClCompile Include="src\gui\config\cfg.cpp" />
+    <ClCompile Include="src\gui\imgui\freetype\imgui_freetype.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_draw.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_tables.cpp" />
+    <ClCompile Include="src\gui\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\gui\imgui\impl\imgui_impl_dx9.cpp" />
+    <ClCompile Include="src\gui\imgui\impl\imgui_impl_win32.cpp" />
+    <ClCompile Include="src\gui\menu\bind\key.cpp" />
+    <ClCompile Include="src\gui\menu\menu.cpp" />
+    <ClCompile Include="src\gui\menu\other\blur.cpp" />
+    <ClCompile Include="src\gui\menu\other\easing.cpp" />
+    <ClCompile Include="src\gui\menu\other\extensions\imgui extensions.cpp" />
+    <ClCompile Include="src\renderer\new\newrender.cpp" />
+    <ClCompile Include="src\security\network\tcp.cpp" />
+    <ClCompile Include="src\security\security.cpp" />
+    <ClCompile Include="src\util\CRC32.cpp" />
+    <ClCompile Include="src\util\input\input.cpp" />
+    <ClCompile Include="src\util\math\math.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\csgo\client\client.h" />
+    <ClInclude Include="src\csgo\hooks\detour\detour_hook.h" />
+    <ClInclude Include="src\csgo\hooks\game\clientdll.h" />
+    <ClInclude Include="src\csgo\hooks\game\clientmode.h" />
+    <ClInclude Include="src\csgo\hooks\game\surface.h" />
+    <ClInclude Include="src\csgo\hooks\hooks.h" />
+    <ClInclude Include="src\csgo\hooks\player\player.h" />
+    <ClInclude Include="src\csgo\interfaces\csgo.h" />
+    <ClInclude Include="src\csgo\interfaces\interfaces.h" />
+    <ClInclude Include="src\csgo\offsets and netvars\entoffsets.h" />
+    <ClInclude Include="src\csgo\offsets and netvars\netvars.h" />
+    <ClInclude Include="src\csgo\sdk\activity.h" />
+    <ClInclude Include="src\csgo\sdk\angle.h" />
+    <ClInclude Include="src\csgo\sdk\basehandle.h" />
+    <ClInclude Include="src\csgo\sdk\beams.h" />
+    <ClInclude Include="src\csgo\sdk\clientclass.h" />
+    <ClInclude Include="src\csgo\sdk\color.h" />
+    <ClInclude Include="src\csgo\sdk\cvar.h" />
+    <ClInclude Include="src\csgo\sdk\datamap.h" />
+    <ClInclude Include="src\csgo\sdk\engineclient.h" />
+    <ClInclude Include="src\csgo\sdk\entity.h" />
+    <ClInclude Include="src\csgo\sdk\entlist.h" />
+    <ClInclude Include="src\csgo\sdk\game.h" />
+    <ClInclude Include="src\csgo\sdk\gameevents.h" />
+    <ClInclude Include="src\csgo\sdk\gamerules.h" />
+    <ClInclude Include="src\csgo\sdk\globalvars.h" />
+    <ClInclude Include="src\csgo\sdk\glow.h" />
+    <ClInclude Include="src\csgo\sdk\hud.h" />
+    <ClInclude Include="src\csgo\sdk\input.h" />
+    <ClInclude Include="src\csgo\sdk\localize.h" />
+    <ClInclude Include="src\csgo\sdk\matrix.h" />
+    <ClInclude Include="src\csgo\sdk\mdlcache.h" />
+    <ClInclude Include="src\csgo\sdk\memalloc.h" />
+    <ClInclude Include="src\csgo\sdk\networkstringtable.h" />
+    <ClInclude Include="src\csgo\sdk\platform.h" />
+    <ClInclude Include="src\csgo\sdk\prediction.h" />
+    <ClInclude Include="src\csgo\sdk\resources.h" />
+    <ClInclude Include="src\csgo\sdk\sdk.h" />
+    <ClInclude Include="src\csgo\sdk\sound.h" />
+    <ClInclude Include="src\csgo\sdk\studio.h" />
+    <ClInclude Include="src\csgo\sdk\studiorender.h" />
+    <ClInclude Include="src\csgo\sdk\threadtools.h" />
+    <ClInclude Include="src\csgo\sdk\trace.h" />
+    <ClInclude Include="src\csgo\sdk\utlblockmemory.h" />
+    <ClInclude Include="src\csgo\sdk\utlmemory.h" />
+    <ClInclude Include="src\csgo\sdk\utlvector.h" />
+    <ClInclude Include="src\csgo\sdk\vector2.h" />
+    <ClInclude Include="src\csgo\sdk\vector3.h" />
+    <ClInclude Include="src\features\anti-aim\anti-aim.h" />
+    <ClInclude Include="src\features\bonesetup\BoneSetup.h" />
+    <ClInclude Include="src\features\chams\chams.h" />
+    <ClInclude Include="src\features\events\events.h" />
+    <ClInclude Include="src\features\Fake Ping\FakePing.h" />
+    <ClInclude Include="src\features\fakelag\FakeLag.h" />
+    <ClInclude Include="src\features\far esp\radar\radar.h" />
+    <ClInclude Include="src\features\far esp\sounds\SoundESP.h" />
+    <ClInclude Include="src\features\grenades\grenades.h" />
+    <ClInclude Include="src\features\grenades\grenades_warning.h" />
+    <ClInclude Include="src\features\lagcomp\lagcomp.h" />
+    <ClInclude Include="src\features\lagcomp\lagrecord.h" />
+    <ClInclude Include="src\features\movement\movement.h" />
+    <ClInclude Include="src\features\netdata\netdata.h" />
+    <ClInclude Include="src\features\Network\Network.h" />
+    <ClInclude Include="src\features\notification\notification.h" />
+    <ClInclude Include="src\features\penetration\autowall.h" />
+    <ClInclude Include="src\features\prediction\EnginePrediction.h" />
+    <ClInclude Include="src\features\ragebot\ragebot.h" />
+    <ClInclude Include="src\features\resolver\resolver.h" />
+    <ClInclude Include="src\features\shots\shots.h" />
+    <ClInclude Include="src\features\skin changer\skin changer.h" />
+    <ClInclude Include="src\features\Tickbase Manipulation\TickbaseManipulation.h" />
+    <ClInclude Include="src\features\visuals\visuals.h" />
+    <ClInclude Include="src\features\weather\weather.h" />
+    <ClInclude Include="src\gui\config\cfg.h" />
+    <ClInclude Include="src\gui\config\items.h" />
+    <ClInclude Include="src\gui\imgui\freetype\imgui_freetype.h" />
+    <ClInclude Include="src\gui\imgui\imconfig.h" />
+    <ClInclude Include="src\gui\imgui\imgui.h" />
+    <ClInclude Include="src\gui\imgui\imgui_internal.h" />
+    <ClInclude Include="src\gui\imgui\impl\imgui_impl_dx9.h" />
+    <ClInclude Include="src\gui\imgui\impl\imgui_impl_win32.h" />
+    <ClInclude Include="src\gui\imgui\imstb_rectpack.h" />
+    <ClInclude Include="src\gui\imgui\imstb_textedit.h" />
+    <ClInclude Include="src\gui\imgui\imstb_truetype.h" />
+    <ClInclude Include="src\gui\menu\bind\key.h" />
+    <ClInclude Include="src\gui\menu\config\config.h" />
+    <ClInclude Include="src\gui\menu\menu.h" />
+    <ClInclude Include="src\gui\menu\other\blur.hpp" />
+    <ClInclude Include="src\gui\menu\other\blur_x.h" />
+    <ClInclude Include="src\gui\menu\other\blur_y.h" />
+    <ClInclude Include="src\gui\menu\other\easing.h" />
+    <ClInclude Include="src\gui\menu\other\extensions\imgui extensions.h" />
+    <ClInclude Include="src\gui\menu\other\testmenu.h" />
+    <ClInclude Include="src\precompiled.h" />
+    <ClInclude Include="src\gui\menu\char items.h" />
+    <ClInclude Include="src\renderer\new\fonts.h" />
+    <ClInclude Include="src\renderer\new\newrender.h" />
+    <ClInclude Include="src\security\macros.h" />
+    <ClInclude Include="src\security\network\ca.h" />
+    <ClInclude Include="src\security\network\enc.h" />
+    <ClInclude Include="src\security\network\events.h" />
+    <ClInclude Include="src\security\network\packet.h" />
+    <ClInclude Include="src\security\network\tcp.h" />
+    <ClInclude Include="src\security\security.h" />
+    <ClInclude Include="src\security\vendor\li\lazy_importer.h" />
+    <ClInclude Include="src\util\address.h" />
+    <ClInclude Include="src\util\base64.h" />
+    <ClInclude Include="src\util\CRC32.h" />
+    <ClInclude Include="src\util\detours.h" />
+    <ClInclude Include="src\util\hash.h" />
+    <ClInclude Include="src\util\input\input.h" />
+    <ClInclude Include="src\util\json.h" />
+    <ClInclude Include="src\util\console\logger.h" />
+    <ClInclude Include="src\util\math\math.h" />
+    <ClInclude Include="src\util\math\other\easings.h" />
+    <ClInclude Include="src\util\modules.h" />
+    <ClInclude Include="src\util\pattern.h" />
+    <ClInclude Include="src\util\pe.h" />
+    <ClInclude Include="src\util\singleton.h" />
+    <ClInclude Include="src\util\stack.h" />
+    <ClInclude Include="src\util\syscall.h" />
+    <ClInclude Include="src\util\tinyformat.h" />
+    <ClInclude Include="src\util\util.h" />
+    <ClInclude Include="src\util\vmt.h" />
+    <ClInclude Include="src\util\x86.h" />
+    <ClInclude Include="src\util\xorstr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="detours.lib" />
+    <Library Include="src\gui\imgui\freetype\objs\freetype.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
